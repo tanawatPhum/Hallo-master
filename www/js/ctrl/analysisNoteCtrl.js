@@ -5,7 +5,7 @@ angular.module('moduleControlles')
     $scope.$on('$ionicView.enter', function() {
         $injector.get('$loadingServ').openLongLoading();
     })
-    
+    czx
     $ionicPlatform.ready(function() {
         DatabaseService.initDB();
     })
