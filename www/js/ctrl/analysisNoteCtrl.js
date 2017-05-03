@@ -2,7 +2,7 @@ angular.module('moduleControlles')
 .controller("analysisNoteCtrl", function($scope,$state,$ionicPlatform,$ionicHistory,$stateParams,$ionicTabsDelegate,$timeServ,AppModules,$googleServ,$ionicHistory,$loadingServ,$operandServ,$injector,$timeout,$rootScope,DatabaseService,$cordovaLocalNotification,$notificationServ,firebaseServ,$dataServ,$internetServ,$dicServ,$cordovaGeolocation) {
     console.log("welcome to analysisNoteCtrl")
     /*$loadingServ.openLoading();*/
-    /*testCommit*/
+    /*commit*/
     $scope.$on('$ionicView.enter', function() {
         $injector.get('$loadingServ').openLongLoading();
     })
