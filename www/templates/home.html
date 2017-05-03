@@ -1,0 +1,165 @@
+
+<ion-view>
+    <ion-nav-bar class="header-color" >
+        <ion-nav-buttons side="right">   
+                <button  class="button button-blue icon {{operationWord}}"  ng-click="goToForward()">
+                    
+                </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="left">
+                <button class="button button-large button-blue icon {{operationIcon}}" ng-click="goToBack()">
+                <!--ion-chevron-left-->
+                </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+  
+    <div class="tabs-striped tabs-top tabs-background-blue tabs-color-light">
+        <div class="tabs header">
+            <a ng-click="openToday()" class="tab-item {{activeToday.statusString}}" href="#">
+              
+              วันนี้
+            </a>
+            
+            <a ng-click="openAll()" class="tab-item {{activeAll.statusString}}" href="#">
+             
+              ทั้งหมด
+            </a>
+          </div>
+      </div>
+    </div>
+
+
+    <ion-content class="has-header has-tabs-top  has-footer">
+
+       <!--<button ng-click="synToFireBase()">syn</button>
+       <button ng-click="synToLocal()">local</button>-->
+     <button ng-click="delete()">delete</button>
+       <div style="min-height: 100%" class="flex-container">
+
+        <div ng-bind-html="openGps"></div>  
+            <div style="margin-top: 1em"></div>
+        <section ng-show="activeToday.statusBool">
+            <div ng-repeat="note in showTodayNote track by $index" ng-if="activeToday.sortByDate==true">
+            <div ng-if="$index==0" style="width:0.5em;background:#FF4081;height: 7.04em;display: inline-block"></div>
+            <!--<div ng-if="$index==1" style="width:0.5em;background:#FFD740;height: 7.04em;display: inline-block"></div>-->
+            <div ng-if="$index>0"style="width:0.5em;background:#7986CB;height: 7.04em;display: inline-block"></div>
+              <div style="padding-left:0px;width:95%;float: right;border-style:none;border-bottom-style:solid;border-width: 2px;border-color: #AA00FF" class="item">
+                  <div ng-click="goToContentNote($index,$index)">
+                    <div style="color:#448AFF;font-weight: bold;font-size: 1.17em;">{{note.content.title}}</div>  
+                    <div style="margin-top:0.5em;display:block;" class="contentText">
+                        {{note.content.contentOriginal}}
+                        
+                    </div>
+                    <div  style="margin-top:0.68em;float:left;width:48%">
+                        <div class="icon ion-android-alarm-clock item-icon-timeplace color-orange"></div>
+                            <div ng-if="note.resultsTimeAndPlace.timeString!=null && note.resultsTimeAndPlace.timeString!='' " style="width:89%" class="contentText">{{note.resultsTimeAndPlace.timeString}}</div>
+                            <div ng-if="note.resultsTimeAndPlace.timeString==null || note.resultsTimeAndPlace.timeString=='' " style="width:89%" class="contentText">ไม่ระบุ</div>
+                    </div>  
+                    <div style="margin-top:0.68em;margin-top:0.68em;float:right;width:45%">
+                        <div class="icon ion-android-pin item-icon-timeplace color-green"></div>
+                            <div  ng-if="note.placeString!=null && note.placeString!='' " style="width:89%" class="contentText">{{note.placeString}}</div>
+                            <div  ng-if="note.placeString==null || note.placeString=='' " style="width:89%" class="contentText">ไม่ระบุ</div>
+                    </div>
+                  </div>
+                  <div ng-click="goToDelete(note.sequence);" style="width:20%;position: absolute;right: 0px;font-size:1.3em;bottom: 0.1em;padding-left: 2.31em;color:#7C4DFF" class="icon ion-trash-a"></div>
+              </div>
+               
+              </div>
+            <div ng-repeat="place in showPlaceToday track by $index" ng-if="activeToday.sortByPlace==true">
+                <div ng-if="$index==0" style="width:0.5em;background:#FF4081;height: 7.04em;display: inline-block"></div>
+                 <!--<div ng-if="$index==1" style="width:0.5em;background:#FFD740;height: 7.04em;display: inline-block"></div>-->
+                <div ng-if="$index>0"style="width:0.5em;background:#7986CB;height: 7.04em;display: inline-block"></div>
+                <div style="padding-left:0px;width:95%;float: right;border-style:none;border-bottom-style:solid;border-width: 2px;border-color: #AA00FF" class="item">
+                    <div ng-click="goToContentNote($index,$index)">
+                    <div style="color:#448AFF;font-weight: bold;font-size: 1.17em;">{{place.title}}</div>
+                    <div style="margin-top:0.5em;display:block;" class="contentText">
+                      {{place.keyWord}}
+                  </div>
+                  <div  style="margin-top:0.68em;float:left;width:48%">
+                        <div style="color: #FF9100" class="icon ion-arrow-graph-up-right item-icon-timeplace"></div>
+                        <div ng-if="place.diffCurrentDistance!=null" style="width:89%"  class="contentText">{{place.diffCurrentDistance/1000| number:2}} กม.</div>
+                        <div ng-if="place.diffCurrentDistance==null" style="width:89%"  class="contentText">ไม่ระบุ</div>
+                  </div>
+                    </div>
+                  <div ng-click="goToDelete(place.sequence);" style="position: absolute;right: 10px;font-size:1.3em;bottom: 0.25em;color:#7C4DFF" class="icon ion-trash-a"></div>
+                </div>
+         
+            </div>
+
+          </section>
+          <div ng-show="activeAll.statusBool">
+          <div ng-if="activeAll.sortByDate==true" ng-repeat="all in showAllNote track by $index">
+                <div style="display: inline-block"  class="item-lable-date"><i style="font-weight: bold;color:#AA00FF">{{all.date}}</i></div>
+                <div style="margin-top: 0.7em"></div>
+                <div ng-repeat="note in all.listNote track by $index">
+                   <!-- <div ng-if="$parent.$index==0" style="width:0.5em;background:#FF4081;height: 5.015em;display: block"></div>-->
+                    <!--<div ng-if="$parent.$index==1" style="width:0.5em;background:#FFD740;height: 5.015em;float:left"></div>
+                    <div ng-if="$parent.$index>1"style="width:0.5em;background:#7986CB;height: 5.015em;float:left"></div>-->
+                    <div style="padding-left:10px;width:100%;float: right;border-style:none;border-bottom-style:solid;border-width: 2px;border-color: #FFAB40" class="item">
+                        <!--<div ng-if="$parent.$index==0" style="width:0.5em;background:#FF4081;height: 5.015em;float:left"></div>-->
+                        <div ng-click="goToContentNote($parent.$index,$index)">
+                            <div style="color:#448AFF;font-size: 1.17em;">{{note.content.title}}</div>  
+                            <div style="margin-top:0.5em;display:block;width: 95%;margin-bottom:0.5em;" class="contentText">
+                                {{note.content.contentOriginal}}
+                            </div>
+                        </div>
+                        <div ng-click="goToDelete(note.sequence);" style="position: absolute;right: 10px;font-size:1.3em;bottom: 0.25em;" class="icon ion-trash-a color-green"></div>   
+                  </div>
+               
+                </div>
+            </div>
+         
+             <div ng-if="activeAll.sortByPlace==true" ng-repeat="all in showAllPlace track by $index">
+                <div style="display: inline-block" class="item-lable-date"><i style="font-weight: bold;color:#AA00FF">{{all.date}}</i></div>
+                <div style="margin-top: 0.7em"></div>
+                <div ng-repeat="place in all.listPlace track by $index">
+                  <!--<div ng-if="$parent.$index==0" style="width:0.5em;background:#FF4081;height: 5.015em;display: inline-block"></div>
+                  <div ng-if="$parent.$index==1" style="width:0.5em;background:#FFD740;height: 5.015em;display: inline-block"></div>
+                  <div ng-if="$parent.$index>1"style="width:0.5em;background:#7986CB;height: 5.015em;display: inline-block"></div>-->
+                <div style="padding-left:10px;width:100%;float: right;border-style:none;border-bottom-style:solid;border-width: 2px;border-color: #FFAB40" class="item">
+                    <div ng-click="goToContentNote($parent.$index,$index)">
+                        <div style="color:#448AFF;font-weight: bold;font-size: 1.17em;">{{place.title}}</div>  
+                        <div style="margin-top:0.5em;display:block;width: 95%;margin-bottom:0.5em;" class="contentText">
+                            {{place.content.keyWord}}
+                        </div>
+                    </div>
+                    <div ng-click="goToDelete(place.sequence);" style="position: absolute;right: 10px;font-size:1.3em;bottom: 0.25em;" class="icon ion-trash-a color-green"></div>    
+                  </div>
+                  </div>
+            </div>
+        </div>
+
+        </div>
+      
+    
+
+         
+              
+            
+        
+ 
+           
+    </ion-content>
+       
+    <div class="tabs tabs-icon-left">
+        <a ng-click="sortByDate()" class="tab-item tab-icon">
+            <i class="icon ion-android-calendar {{activeToday.colorDate}}"></i>
+            วัน-เวลา
+        </a>
+        <a ng-click="sortByPlace()" class="tab-item tab-icon">
+            <i class="icon ion-android-pin {{activeToday.colorPlace}}"></i>
+            สถานที่
+        </a>
+    </div>
+
+
+
+  
+   <!--
+        <div class="note-wrap-btn">
+            <button ui-sref="app.newNote" class="note-btn-add">+</button>
+        </div>-->
+
+   
+</ion-view>
+

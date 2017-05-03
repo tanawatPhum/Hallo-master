@@ -1,0 +1,63 @@
+
+<ion-view>
+    <ion-content class="has-header">
+        <div class="flex-container">    
+            <div class="list">
+                <div class="item item-divider item-customize-tab">
+                    <label class="item-customize-title">วัน-เวลา</label>
+                    <label ng-click="note.openDateTime = !note.openDateTime"  style="float:right" class="toggle toggle-calm">
+                        <input type="checkbox" ng-checked="note.openDateTime"> 
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                    </label>        
+                </div>    
+            </div>
+            <div ng-show="note.openDateTime" ng-repeat="d in inputFindTime track by $index">
+                <div ng-if="d.formatDate!=null" class="item item-divider item-day">
+                    <i  ng-init='note[$index].onDate={status:true,color:"color-violet"}' ng-click="openDate($index)"  ng-model="note[$index].onDate" class="icon ion-android-calendar item-customize-calendar {{note[$index].onDate.color}}" ></i>
+                    <label  class="item-label-datetime" ng-click="editDate($index)" ionDatetimePicker ion-datetime-picker date ng-model="date" set-fn="setDirectiveFn(theDirFn,$index,$index,'date')"> {{d.formatDate}}</label>                 
+                </div>
+                <div ng-show="note[$parent.$index].onDate.status" style="border:none" class="item" ng-repeat="t in d.formatTime track by $index" >
+                    <label class="item-label-datetime" ng-click="editTime($parent.$index,$index)" ionDatetimePicker ion-datetime-picker time ng-model="time" set-fn="setDirectiveFn(theDirFn,$parent.$index,$index,'time')">
+                        {{t}}
+                    </label>
+                    <i ng-init='note[$parent.$index][$index].onTime={status:true,color:"color-orange"}' ng-click="openTime($parent.$index,$index)"  ng-model="note[$parent.$index][$index].onTime"  class="{{note[$parent.$index][$index].onTime.color}} icon ion-android-alarm-clock item-customize-timepicker"></i>
+                     <div ng-click="goToDeleteTime($parent.$index,$index);" style="position: absolute;right: 10px;font-size:1.3em;bottom: 1em;" class="icon ion-trash-a color-green"></div>                
+                </div>
+                   
+            </div>
+            <div class="list">
+                <div class="item item-divider item-customize-tab">
+                    <label class="item-customize-title">สถานที่</label>
+                    <label ng-init="note.openPlace=true" ng-click="note.openPlace = !note.openPlace"  style="float:right" class="toggle toggle-calm">
+                        <input type="checkbox" ng-checked="note.openPlace">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                    </label>        
+                </div>    
+            </div>
+            <div ng-hide="note.connected" style="background:#FF4081;color: white" class="item item-divider item-day">
+                    <i   ng-click="openDate($index)"  ng-model="note[$index].onDate" class="icon ion-android-alert item-customize-calendar" ></i>
+                    <label  class="item-label-datetime color-white" > ไม่ได้เชื่อมต่อเครื่อข่าย</label>                 
+            </div>
+            <div ng-show="note.openPlace" ng-repeat="p in inputFindPlace.currentPlace track by $index">
+                <div style="border:none" class="item">
+                    <i  ng-click="openPlace($index)" ng-init='note[$index].onPlace={status:true,color:"color-green"}' ng-model="note[$index].onPlace" class="icon ion-android-pin item-customize-calendar {{note[$index].onPlace.color}}" ></i>
+                     
+                    <label ng-click="goToGoogleMap($index)" class="item-label-datetime"> {{p.results.name}}</label>  
+                    <div ng-click="goToDeletePlace($index);" style="position: absolute;right: 10px;font-size:1.3em;bottom: 0.9em;" class="icon ion-trash-a color-green"></div>                
+                </div>
+        
+                   
+            </div>
+
+
+        </div>
+
+        <div ng-show="false" id="map"></div>
+        <div ng-show="false" id="map2"></div>
+    </ion-content>
+</ion-view>  
+   

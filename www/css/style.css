@@ -1,0 +1,348 @@
+/* Empty. Add your own CSS if you like */
+
+/*base config*/
+body,textarea{
+    font-size: 1em;
+    color:black;
+    font-family: 'Roboto';
+}
+
+input[type="text"]:disabled {
+    background: white;
+}
+.color-orange{
+    /*color: #FFD740;*/
+    color:#00C853;
+}
+.color-violet{
+    color:#AA00FF;
+}
+.color-grey{
+    color:#BDBDBD;
+}
+.color-green{
+    /*color:#B2FF59;*/
+    color:#FF5252;
+}
+.color-darkblue{
+    /*color:#536DFE;*/
+    /*color:#FF6E40;*/
+    color:#64DD17;
+}
+.color-white{
+    color:white!important;
+}
+.color-lightblue{
+    color:#11c1f3;
+}
+.color-lightblue::after{
+    color:#11c1f3;
+}
+.color-lightblue::before{
+    color:#11c1f3;
+}
+.backgroundcolor-blue{
+    background:#7986CB !important;
+}
+.backgroundcolor-lightblue{
+    background:#40C4FF!important;
+}
+.backgroundcolor-green{
+    background:#B2FF59 !important;
+}
+.backgroundcolor-pink{
+    background: #FF5252;
+}
+.backgroundcolor-orange{
+    background: #FFD740;
+}
+/*
+.scroll{
+  height:100%!important;
+}*/
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-center;
+}
+
+
+.flex-container .list{
+    flex-grow: 1;
+    margin-bottom: 0px; 
+}
+.header{
+    box-shadow: 0px 2px 5px rgba(0,0,0,.4);
+}
+.header-color{
+     background: #3F51B5;
+}
+
+/* analysisPage*/
+.item-customize-tab{
+    color:white !important;
+    border:none !important;
+    background: #7986CB !important;
+}
+.item-customize-title{
+    position:absolute;
+    top:1.2em;
+}
+.item-customize-calendar,.item-customize-timepicker,.item-customize-duration{
+    font-size: 1.8em;
+    width: 15%;
+    /*background: orange;*/
+}
+.item-customize-duration{
+ 
+    position: absolute;
+    top:0.04em;
+    width: auto;
+    text-align: center;
+}
+.item-label-datetime{
+    color: black;
+    padding-top: 0.38em;
+    float:right;
+    width: 85%;
+}
+.item-icon-timeplace{
+    position: relative;
+    top:-0.15em;
+    text-align: center;
+    margin-right: 0.2em;
+    font-size: 1.3em;
+    display: inline-block;
+}
+.item-lable-date{
+    padding-left: 10px;
+    margin-top: 1em;
+    /*margin-bottom: 0.9em;*/
+    color:#BDBDBD;
+}
+/* newNotePage*/
+.note-img{ 
+    width: 100%;
+    height: 13.5em;
+}
+.note-img-content{
+    width: 100%;
+    height: 12em;
+}
+.note-content,.note-textarea{
+    margin-top:25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+.note-textarea{
+    height: 26.5em;
+    resize: none;
+}
+.note-btnOption{
+    /*background: rgba(255, 0, 0, 0.4);*/
+    position: absolute;
+    top:12em;
+    width: 100%;
+    height: 6%;
+}
+.note-btnOption-Option1,.note-btnOption-Option2{
+    font-size: 1.5em;
+    border-radius: 50%;
+    background: #FF5252;
+    height: 42px;
+    width: 42px;
+    float: right;
+    margin-right: 10px;
+    color: white;
+    border: none;
+
+}
+.note-btnOption-Option2{
+    background: #7986CB; 
+}
+.note-btn-add{
+  width: 56px;
+  height: 56px;
+  border:none;
+  border-radius: 50%;
+  background: #FF5252;
+  font-size: 1.5em!important;
+  color:white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  float: right;
+  margin-right: 10px;
+}
+.note-wrap-btn{
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    height: 63px;
+}
+.note-home-content{
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis !important;
+    text-align: justify;
+    margin-bottom: 0.5em;
+}
+.note-home-texttime{
+    position: relative;
+    top:0.3em;
+    width: 81%;
+    float: right;  
+}
+.note-home-texttitle{
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.flex-container .register-form,.login-form,.reset-form{
+    
+    background: white;
+    align-self: center;
+    width: 88%;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    height: 35em;
+}
+.register-form{
+    margin-top: 6em!important;
+    height: 28.5em!important;
+
+}
+.reset-form{
+    margin-top: 7.5em!important;
+    height: 24em!important;
+}
+.regis-title,.login-title{
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    color: white;
+    height: 2em;
+    /*padding-top: 1em;*/
+    font-size: 3em;
+}
+.regis-title{
+    margin-top: 1.5em;
+}
+.regis-input{
+
+    border-color:#EEFF41;
+    background: transparent;
+   /* background-color: #fff;*/
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    
+
+  
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+    border-width: 5px;
+    border-bottom-style: solid;
+    margin: 10px;
+    margin-top: -12px;
+    
+}
+.regis-header{
+    background: white;
+    height: 90px;
+    font-size: 1.17em;
+    text-align: center;
+    padding-top:1em;
+
+}
+.login-title{
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    font-size: 4em;
+}
+.login-logo{
+    position: relative;
+    top: -0.6em;
+    left: 0.4em;
+
+    
+}
+
+.tab-icon{
+    background: white;
+    color:black;opacity: 1;
+    font-size: 1em!important;
+}
+
+.ion-record{
+    color: white;
+}
+.item-alert{
+    background:#FF4081!important;
+    color: white!important;
+}
+.button-cus{
+ 
+}
+
+
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+
+    background-color: white;
+}
+.contentText{
+    white-space: nowrap; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+@media screen and (min-width: 1366px) {
+    .note-img{ 
+        width: 100%;
+        height: 50%;
+    }
+}
+ .animated { 
+     /*
+            background-image: url(/css/images/logo.png); 
+            background-repeat: no-repeat;
+            background-position: left top; */
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s; 
+            -webkit-animation-fill-mode: both; 
+            animation-fill-mode: both; 
+         }
+         
+         @-webkit-keyframes bounce { 
+            0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+            40% {-webkit-transform: translateY(-5px);} 
+            60% {-webkit-transform: translateY(-2.5px);} 
+         } 
+         
+         @keyframes bounce { 
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+            40% {transform: translateY(-5px);} 
+            60% {transform: translateY(-2.5px);} 
+         }
+         
+         .bounce { 
+            -webkit-animation-name: bounce; 
+            animation-name: bounce; 
+         }
+        input[type="password"]:disabled {
+            background: white;
+        }
+        

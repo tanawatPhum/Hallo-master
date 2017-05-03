@@ -1,0 +1,39 @@
+<ion-view>
+    <ion-content>
+    
+
+          
+           <!-- <div style="border-radius: 10px" class="card login-form">-->
+              
+            
+                <div  style="min-height:100%;background:#3F51B5;min-width: 100%;border: none" class="item item-text-wrap">
+                    <center> <img class="login-logo " style=" margin-top:4em;height:8em;width: 8em" src="img/logo.png"></center>
+                  
+                    <div style="margin-top:4.5em" class="list">
+                        <label style="border-color: #EEFF41" class="regis-input">
+                           <i style="color: white;font-size: 1.8em;position: relative;bottom: -5px;margin-right:10px;margin-left:1px " class="icon ion-android-person"></i> <input style="display:inline;background: transparent;color:white" ng-model="login.email" type="text" placeholder="อีเมล์ : ">
+                        </label>
+                        <br>
+                        <label style="border-color: #B2FF59" class="regis-input">
+                            <i style="color: white;font-size: 1.8em;position: relative;bottom: -5px;margin-right:10px;margin-left:1px " class="icon ion-android-mail"></i>
+                           <input ng-model="login.password" style="display:inline;color:white;background: transparent;" type="password" placeholder="รหัสผ่าน : ">
+                        </label>
+                        <label ng-click="goToResetPassword()" style="margin-left:10px;color:white;  text-align:center;position: relative;top: 0.85em"><b>ลืมรหัสผ่าน?</b></label>
+                         <!--<label ng-click="goToRegis()" style="margin-right:10px;color:white;  text-align:center;position: relative;top: 0.85em;float: right;"><b>ลงทะเบียน</b><i style="color:#B2FF59;font-size:1.3em;margin-left: 0.5em;position: relative;top: 0.17em" class="icon ion-android-arrow-dropright"></i></label>      -->                  
+                    </div> 
+                    <div style="margin-left:10px;margin-right:10px;margin-top: 3em;margin-bottom: 3em;">        
+                        <!--<button ng-click="goToHomeRegis()" style="border-radius: 5px;background: #FF4081" class="button button-full" ><b style="color:white">เข้าสู่ระบบ</b></button>
+                       <button  ng-click="goToRegis()" style="border-radius: 0px;margin-top: 2%;margin-right: 3%;width: 48.5%;float: left" class="button button-full backgroundcolor-pink" ><b style="color:white">เข้าสู่ระบบ</b></button>-->
+                       <button  ng-click="goToRegis()" style="border-radius: 5px;margin-top: 2%;margin-right: 3%;width: 48.5%;float: left;background: #FFAB40" class="button button-full" ><b style="color:white">ลงทะเบียน</b></button>
+                        <button  ng-click="goToHomeRegis()" style="border-radius: 5px;margin-top: 2%;width: 48.5%;float: right" class="button button-full backgroundcolor-pink" ><b style="color:white">เข้าสู่ระบบ</b></button>
+                    </div>
+
+                    
+                </div>
+           <!-- </div>  -->     
+    
+    </ion-content>
+    <div ng-click="goToHomeNonRegis()" style="border-top-style:solid;border-width: 3px;border-color: #536DFE" class="bar bar-footer header-color">
+   <h1 style="color:white" class="title  animated bounce">โน๊ตเดี๋ยวนี้<i style="color:#18FFFF;font-size:1em;margin-left: 0.5em;position: relative;top: 0.05em" class="icon ion-android-create"></i></h1>
+</div>
+</ion-view>

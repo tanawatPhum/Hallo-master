@@ -1,0 +1,28 @@
+<ion-nav-view>
+    <ion-view>
+        <ion-content>
+            <div style="background: #3F51B5;min-height:100%" class="flex-container"> 
+                <div style="border-radius: 10px" class="card reset-form">
+                    <center> <img class="login-logo" style="margin-top:2.4em;height:5.5em;width: 5.5em" src="img/logo.png"></center>
+                    <div class="regis-header" >
+                        เปลี่ยนรหัสผ่านของคุณ
+
+                    </div>
+                    <div  style="height: 100%;border: none;margin-top:-1.7em" class="item item-text-wrap">
+                        <div class="list">
+                            <label class="regis-input">
+                                <input ng-model="reset.email" style="width: 100%" type="text" placeholder="อีเมล์ : ">
+                            </label>                                   
+                        </div>
+                        
+                        <button ng-click="reset()" style="position: relative;top: 6.5%;background:#18FFFF" class="button button-full" ><b style="color:white">ตกลง</b></button>
+                    </div>
+                 
+                    
+                </div>
+                
+            </div>
+        </ion-content>
+        
+    </ion-view>
+</ion-nav-view>

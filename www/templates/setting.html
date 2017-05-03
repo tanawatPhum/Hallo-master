@@ -1,0 +1,91 @@
+<ion-view>
+    <ion-content class="has-header">
+        <div style="min-height:52px" class="item item-divider item-customize-tab">
+                <label class="item-customize-title">การแจ้งเตือน</label>     
+        </div>
+        <div  class="item item-divider item-day">
+            <i class="icon icon ion-android-calendar item-customize-calendar color-violet" ></i>
+            <label  class="item-label-datetime">เวลาเริ่มต้นวันนี้</label>
+            <i  ng-click="viewStatusNoteToday()" class="icon {{note.viewToday.icon}} color-grey" style="position:absolute;right:0.5em;font-size:1.8em"></i>               
+        </div>
+        <div ng-show="note.viewToday.status">
+            <div ionDatetimePicker ion-datetime-picker time ng-model="note.time.morning" set-fn="setDirectiveFn(theDirFn,'morning')"  style="border:none;color:#64FFDA" class="item" >
+                <label class="item-label-datetime">
+                    {{morningTimeString}}
+                </label>
+                <i style="font-size: 3.1em;" class="ion-ios-cloudy item-customize-duration"></i>
+            </div>
+            <div ionDatetimePicker ion-datetime-picker time ng-model="note.time.noon" set-fn="setDirectiveFn(theDirFn,'noon')" style="border:none;color:#FF5252" class="item" >
+                <label class="item-label-datetime">
+                    {{noonTimeString}}
+                </label>
+                <i style="font-size: 3.1em" class="ion-ios-sunny item-customize-duration"></i>
+            </div>
+            <div ionDatetimePicker ion-datetime-picker time ng-model="note.time.evening" set-fn="setDirectiveFn(theDirFn,'evening')" style="border:none;color:#FFD740" class="item" >
+                <label   class="item-label-datetime">
+                    {{eveningTimeString}}
+                </label>
+                <i style="font-size: 3.1em" class="ion-ios-partlysunny item-customize-duration"></i>
+            </div>
+            <div ionDatetimePicker ion-datetime-picker time ng-model="note.time.night" set-fn="setDirectiveFn(theDirFn,'night')" style="border:none;color:#FFFF00" class="item" >
+                <label  class="item-label-datetime">
+                    {{nightTimeString}}
+                </label>
+                <i style="font-size: 3.1em;left: 0.44em" class="ion-ios-moon item-customize-duration"></i>
+            </div>
+        </div>
+         <div class="item item-divider item-day">
+            <i style="font-size: 1.57em;color:#7C4DFF" class="icon icon ion-calendar item-customize-calendar {{note[$index].onDate.color}}" ></i>
+            <label  class="item-label-datetime">เวลาเริ่มต้นวันอื่นๆ</label>
+            <i  ng-click="viewStatusNoteSome()" class="icon {{note.viewSome.icon}} color-grey" style="position:absolute;right:0.5em;font-size:1.8em"></i>                               
+        </div>
+        <div ng-show="note.viewSome.status" ionDatetimePicker ion-datetime-picker time ng-model="note.time.some" set-fn="setDirectiveFn(theDirFn,'some')" style="border:none;color:#757575" class="item" >
+            <label set-fn="setDirectiveFn(theDirFn,'some')" class="item-label-datetime">
+                {{someTimeString}}
+            </label>
+            <i ng-click="viewStatusNoteSome()" style="font-size: 3.1em;" class="ion-ios-cloudy item-customize-duration"></i>
+        </div>
+        <div class="item item-divider item-day">
+            <i class="icon icon ion-android-alarm-clock item-customize-calendar color-orange " ></i>
+            <label  class="item-label-datetime">เวลาแจ้งเตือน</label>
+            <i  ng-click="viewStatusNoteTimeNoti()" class="icon {{note.viewTimeNoti.icon}} color-grey" style="position:absolute;right:0.5em;font-size:1.8em"></i>                               
+        </div>
+        <div ng-show="note.viewTimeNoti.status" ionDatetimePicker ion-datetime-picker time ng-model="note.time.noti" set-fn="setDirectiveFn(theDirFn,'noti')" style="border:none" class="item" >
+            <label set-fn="setDirectiveFn(theDirFn,'some')" class="item-label-datetime">
+                {{notiTimeString}} ชั่วโมง ก่อนเวลา
+            </label>
+            <i ng-click="viewStatusNoteSome()" style="color:#FF6E40" class="ion-flag item-customize-timepicker"></i>
+        </div>
+        <div style="min-height:52px" class="item item-divider item-customize-tab">
+                <label class="item-customize-title">ค่าเริ่มต้นของระบบ</label>     
+        </div>
+        <div ng-click="openAnalysis()" style="border:none" class="item" >
+            <label class="item-label-datetime">
+                {{note.analysis.text}}
+            </label>
+            <i class="{{note.analysis.icon}} item-customize-timepicker {{note.analysis.color}}"></i>
+        </div>
+        <div ng-click="delAll()" style="border:none" class="item" >
+            <label class="item-label-datetime">
+                ลบข้อมูลทั้งหมด
+            </label>
+            <i  style="margin-left: 0.14em;" class="ion-ios-trash item-customize-timepicker color-green"></i>
+        </div>
+
+         <div style="min-height:52px" class="item item-divider item-customize-tab">
+                <label class="item-customize-title">สำรองข้อมูล</label>     
+        </div>
+         <div ng-click="saveToCloud()" style="border:none" class="item" >
+            <label class="item-label-datetime">
+                {{note.saveToCloud.text}}
+            </label>
+            <i style="color: #18FFFF" class="ion-android-upload item-customize-timepicker"></i>
+        </div>
+        
+        
+
+        
+
+        
+    </ion-content> 
+</ion-view>

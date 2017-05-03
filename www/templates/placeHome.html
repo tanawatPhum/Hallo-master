@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-nav-bar class="header-color" >
+        <ion-nav-buttons side="right">   
+                <button  class="button button-blue icon" ng-click="goToForward()">
+                    {{operationWord}}
+                </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="left">
+                <button class="button button-large button-blue icon {{operationIcon}}" ng-click="goToBack()">
+                <!--ion-chevron-left-->
+                </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+  
+    <div class="tabs-striped tabs-top tabs-background-blue tabs-color-light">
+        <div class="tabs header">
+            <a ng-click="openToday()" class="tab-item {{activeNearby.statusString}}" href="#">          
+              Nearby
+            </a>
+            <a ng-click="openAll()" class="tab-item {{activeAll.statusString}}" href="#">
+             
+              All
+            </a>
+          </div>
+      </div>
+    </div>
+    <ion-content>
+      
+    </ion-content>
+</ion-view>
+ <div class="note-wrap-btn">
+            <button ui-sref="app.newNote" class="note-btn-add">+</button>
+        </div>
+   
+</ion-view>

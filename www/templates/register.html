@@ -1,0 +1,33 @@
+<ion-nav-view>
+    <ion-view>
+        <ion-content>
+            <div style="background: #3F51B5;min-height:100%" class="flex-container"> 
+                <div style="border-radius: 10px" class="card register-form">
+                    <center> <img class="login-logo" style="margin-top:2.4em;height:5.5em;width: 5.5em" src="img/logo.png"></center>
+                    <div class="regis-header" >
+                        สร้างบัญชีใหม่ของคุณ
+
+                    </div>
+                    <div  style="height: 100%;border: none;margin-top:-1.5em" class="item item-text-wrap">
+                        <div class="list">
+                            <label class="regis-input">
+                                <input ng-model="regis.email" style="width: 100%" type="text" placeholder="อีเมล์ : ">
+                            </label>
+                           <br>
+                            <label style="border-color: #FFC400" class="regis-input">
+                                <input ng-model="regis.password"  style="width: 100%" type="password" placeholder="รหัสผ่าน : ">
+                            </label>
+                                   
+                        </div>
+                        
+                        <button ng-click="signUp()" style="position: relative;top: 6%;background: #69F0AE" class="button button-full" ><b style="color:white">ตกลง</b></button>
+                    </div>
+                 
+                    
+                </div>
+                
+            </div>
+        </ion-content>
+        
+    </ion-view>
+</ion-nav-view>

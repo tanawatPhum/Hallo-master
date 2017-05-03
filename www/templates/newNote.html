@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-content class="has-header padding">
+        <div style="height:100%" class="flex-container">
+             <!--<img  class="note-img" src="img/march.jpg">
+            </img>-->
+            <label style="width:95%;margin: auto;margin-top: 1em;margin-bottom: 0px;border-width:2px" class="regis-input">
+                <input ng-model="note.title" style="width: 100%;text-align: center;font-size: 1.5em" type="text" placeholder="หัวข้อโน๊ต ">
+            </label>
+            <textarea class="note-textarea" my-text="" id="myTextArea" ng-keyup="getCursorPos($event)" ng-click="getCursorPos($event)"  ng-model="note.content"></textarea>
+        </div>
+    </ion-content>
+    <div class="tabs tabs-icon-left">
+        <a ng-click="goToMap()" class="tab-item tab-icon">
+            <i class="icon ion-android-pin color-green"></i>
+            แผนที่
+        </a>
+        <a ng-click="openAnalysis()" class="tab-item tab-icon">
+            <i class="icon {{note.analysis.icon}} {{note.analysis.color}}"></i>
+            วิเคราะห์
+        </a>
+    </div>
+    
+</ion-view>

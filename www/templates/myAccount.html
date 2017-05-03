@@ -1,0 +1,74 @@
+<ion-view>
+    <ion-content class="has-header">
+        <div style="height:100%" class="flex-container">
+            <div class="list">
+                <div style="min-height:52px" class="item item-divider item-customize-tab">
+                    <label class="item-customize-title">โปรไฟล์ของฉัน</label>     
+                </div>
+                <div style="border:none" class="item" >
+                    <label class="item-label-datetime">
+                       {{note.authenInfo}}
+                    </label>
+                    <i  style="color:#FFD740" class="icon ion-android-mail item-customize-timepicker"></i>
+                </div>
+                <div style="border:none" class="item" >
+                    <i style="color:#9E9E9E" class="icon ion-android-lock item-customize-timepicker"></i>
+                    <label class="item-label-datetime">
+                        <input disabled ng-model="note.password" style="width: 100%;margin-top:-6px" type="password">
+                    </label>
+                </div>
+
+                <div style="min-height:52px" class="item item-divider item-customize-tab">
+                    <label class="item-customize-title">โน๊ต</label>     
+                </div>
+                 <div class="item item-divider item-day">
+                    <i class="icon ion-android-list item-customize-calendar" style="color:#536DFE"></i>
+                    <label  class="item-label-datetime">{{note.number}}&nbsp;&nbsp;บันทึก</label>                 
+                </div>
+                <div style="border:none" class="item" >
+                    <i ng-click="viewStatusNoteDate()" class="icon {{note.viewDate.icon}} color-grey" style="position:absolute;right:0.5em;font-size:1.8em"></i> 
+                    <i class="icon ion-android-alarm-clock item-customize-calendar color-orange" ></i>
+                    <label  class="item-label-datetime">{{note.numberAllTime}}&nbsp;&nbsp;บันทึก &nbsp;&nbsp;</label>                 
+                </div>
+                <div ng-show="note.viewDate.status">
+                    <div style="border:none;color: #FFD740" class="item" >
+                        <label class="item-label-datetime">
+                        {{note.numberNotiTime}}&nbsp;&nbsp;เวลา &nbsp;&nbsp;
+                        </label>
+                        <i  class="icon ion-android-notifications item-customize-timepicker"></i>
+                    </div>
+                    <div style="border:none;color: #76FF03" class="item" >
+                        <label class="item-label-datetime">
+                        {{note.numberSuccessTime}}&nbsp;&nbsp;เวลา&nbsp;&nbsp;
+                        </label>
+                        <i  class="icon ion-android-done item-customize-timepicker"></i>
+                    </div>
+                </div>
+                 <div style="border:none" class="item" >
+                    <i ng-click="viewStatusNotePlace()" class="icon {{note.viewPlace.icon}} color-grey" style="position:absolute;right:0.5em;font-size:1.8em"></i> 
+                    <i class="icon ion-android-pin item-customize-calendar color-green" ></i>
+                    <label  class="item-label-datetime">{{note.numberAllPlace}}&nbsp;&nbsp;บันทึก &nbsp;&nbsp;</label> 
+                                   
+                </div>
+                <div ng-show="note.viewPlace.status">
+                 <div style="border:none;color: #FFD740" class="item" >
+                    <label class="item-label-datetime">
+                       {{note.numberNotiPlace}}&nbsp;&nbsp;บันทึก &nbsp;&nbsp;
+                    </label>
+                    <i  class="icon ion-android-notifications item-customize-timepicker"></i>
+                </div>
+                 <div style="border:none;color: #76FF03" class="item" >
+                    <label class="item-label-datetime">
+                       {{note.numberSuccessPlace}}&nbsp;&nbsp;บันทึก&nbsp;&nbsp;
+                    </label>
+                    <i  class="icon ion-android-done item-customize-timepicker"></i>
+                </div>
+                </div>       
+            </div> 
+      
+          
+   
+            
+        </div>
+    </ion-content> 
+</ion-view>
